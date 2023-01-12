@@ -6,8 +6,8 @@
         <item>IOS</item>
     </string-array>
     <string-array name="claveListaSO">
-        <item>os1</item>
-        <item>os2</item>
-        <item>os3</item>
+        <item>WINDOWS</item>
+        <item>LINUX</item>
+        <item>IOS</item>
     </string-array>
 </resources>

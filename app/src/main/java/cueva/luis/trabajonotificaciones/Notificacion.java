@@ -3,6 +3,7 @@ package cueva.luis.trabajonotificaciones;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +13,6 @@ import android.widget.Toast;
 
 public class Notificacion extends AppCompatActivity {
 
-    private Button buttonToast;
     private EditText editTextName;
     private SeekBar seekBarGravity;
 
@@ -21,16 +21,28 @@ public class Notificacion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notificacion);
 
-        buttonToast = findViewById(R.id.button4);
         editTextName = findViewById(R.id.editTextTextPersonName);
         seekBarGravity = findViewById(R.id.seekBar);
 
-        buttonToast.setOnClickListener(new View.OnClickListener() {
+
+
+        seekBarGravity.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onClick(View view) {
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 Toast toast = Toast.makeText(getApplicationContext(), editTextName.getText(), Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER|Gravity.LEFT, 0, seekBarGravity.getThumbOffset());
+                toast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 100);
+                Log.i("I", i + "");
                 toast.show();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
             }
         });
     }
